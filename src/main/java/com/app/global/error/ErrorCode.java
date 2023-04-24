@@ -6,7 +6,8 @@ import lombok.Getter;
 
 @Getter
 public enum ErrorCode {
-	;
+
+	TEST(HttpStatus.INTERNAL_SERVER_ERROR, "001", "business exception test");
 
 	ErrorCode(final HttpStatus httpStatus, final String errorCode, final String message) {
 		this.httpStatus = httpStatus;
