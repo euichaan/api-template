@@ -7,6 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.app.domain.member.entity.Member;
 import com.app.domain.member.repository.MemberRepository;
+import com.app.global.error.ErrorCode;
+import com.app.global.error.exception.BusinessException;
 
 import lombok.RequiredArgsConstructor;
 
@@ -24,9 +26,9 @@ public class MemberService {
 
 	private void validateDuplicateMember(Member member) {
 		Optional<Member> optionalMember = memberRepository.findByEmail(member.getEmail());
-		// if (optionalMember.isPresent()) {
-		// 	throw new BusinessException(ErrorCode.ALREADY_REGISTERED_MEMBER);
-		// }
+		if (optionalMember.isPresent()) {
+			throw new BusinessException(ErrorCode.ALREADY_REGISTERED_MEMBER);
+		}
 	}
 
 	public Optional<Member> findMemberByEmail(String email) {
