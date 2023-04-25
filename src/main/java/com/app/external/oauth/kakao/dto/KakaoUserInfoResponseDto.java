@@ -5,27 +5,30 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Getter @Setter
 public class KakaoUserInfoResponseDto {
 
-	private String id;
+    private String id;
 
-	@JsonProperty("kakao_account") // Camel Case로 받을 수 있도록 처리
-	private KakaoAccount kakaoAccount;
+    @JsonProperty("kakao_account")
+    private KakaoAccount kakaoAccount;
 
-	@Getter @Setter
-	public static class KakaoAccount {
+    @Getter @Setter
+    public static class KakaoAccount {
+        private String email;
+        private Profile profile;
 
-		private String email;
-		private Profile profile;
+        @Getter @Setter
+        public static class Profile {
 
-		@Getter @Setter
-		public static class Profile {
+            private String nickname;
 
-			private String nickname;
+            @JsonProperty("thumbnail_image_url")
+            private String thumbnailImageUrl;
 
-			@JsonProperty("thumbnail_image_url")
-			private String thumbnailImageUrl;
-		}
-	}
+        }
+
+    }
+
 }

@@ -6,10 +6,11 @@ import org.springframework.web.bind.annotation.RequestHeader;
 
 import com.app.external.oauth.kakao.dto.KakaoUserInfoResponseDto;
 
-@FeignClient(url = "https//kapi.kakao.com", name = "kakaoUserInfoClient")
+@FeignClient(url = "https://kapi.kakao.com", name = "kakaoUserInfoClient")
 public interface KakaoUserInfoClient {
 
-	@GetMapping(value = "/v2/user/me", consumes = "application/json")
-	KakaoUserInfoResponseDto getKakaoUserInfo(@RequestHeader("Content-Type") String contentType,
-											  @RequestHeader("Authorization") String accessToken);
+    @GetMapping(value = "/v2/user/me", consumes = "application/json")
+    KakaoUserInfoResponseDto getKakaoUserInfo(@RequestHeader("Content-type") String contentType,
+                                              @RequestHeader("Authorization") String accessToken);
+
 }

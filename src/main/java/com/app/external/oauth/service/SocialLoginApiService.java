@@ -4,5 +4,6 @@ import com.app.external.oauth.model.OauthAttributes;
 
 public interface SocialLoginApiService {
 
-	OauthAttributes getUserInfo(String accessToken);
+    OauthAttributes getUserInfo(String accessToken);
+
 }
