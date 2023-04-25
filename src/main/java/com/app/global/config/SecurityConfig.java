@@ -9,10 +9,10 @@ import com.app.global.jwt.service.TokenManager;
 @Configuration
 public class SecurityConfig {
 
-	@Value("${access-token-expiration-time}")
+	@Value("${token.access-token-expiration-time}")
 	private String accessTokenExpirationTime;
 
-	@Value("${refresh-token-expiration-time}")
+	@Value("${token.refresh-token-expiration-time}")
 	private String refreshTokenExpirationTime;
 
 	@Value("${token.secret}")
