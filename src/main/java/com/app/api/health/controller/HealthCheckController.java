@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.api.health.dto.HealthCheckResponseDto;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 
+@Tag(name = "health check", description = "서버 상태 체크 API")
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
@@ -19,6 +22,8 @@ public class HealthCheckController {
 
 	private final Environment environment;
 
+	@Tag(name = "health check")
+	@Operation(summary = "서버 Health Check API", description = "현재 서버가 정상적으로 기동이 된 상태인지 검사하는 API")
 	@GetMapping("/health")
 	public ResponseEntity<HealthCheckResponseDto> healthCheck() {
 		HealthCheckResponseDto healthCheckResponseDto = HealthCheckResponseDto.builder()
